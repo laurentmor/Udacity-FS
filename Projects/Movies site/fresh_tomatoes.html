@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+    #rating{
+        -webkit-border-radius: 1px;
+-       moz-border-radius: 1px;
+        border-radius: 50px;
+        padding:5px;
+        color:white;
+        font-size:bold;
+        background-color:black;
+        border: 5px solid black;
+        margin:25px;
+
+        }
+
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+          // Small line to enable tooltiping of storyline
+          $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page navbar and header -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+
+      <h2>Laurent Morissette's favorites movies list</h2>
+    </div>
+    
+       <div class="container">
+         
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="66TuSJo4dZM
+" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" width="220" height="342">
+    <h2>Inception</h2>
+    Rating: <span id="rating">8.8 </span>
+    <a href="#" data-toggle="tooltip" title="A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.">View storyline</a>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="sm9qaEJ3MBc
+" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjAwMzU5ODkwNF5BMl5BanBnXkFtZTcwNTg4Mjk3OA@@._V1_SX300.jpg" width="220" height="342">
+    <h2>Mr. Smith Goes to Washington</h2>
+    Rating: <span id="rating">8.3 </span>
+    <a href="#" data-toggle="tooltip" title="A naive man is appointed to fill a vacancy in the US Senate. His plans promptly collide with political corruption, but he doesn't back down.">View storyline</a>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="QQkEktj7pzk
+" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BOTE1NTI0MDUwN15BMl5BanBnXkFtZTcwNzk0NTcyMQ@@._V1_SX300.jpg" width="220" height="342">
+    <h2>Primary Colors</h2>
+    Rating: <span id="rating">6.7 </span>
+    <a href="#" data-toggle="tooltip" title="A man joins the political campaign of a smooth-operator candidate for president of the USA.">View storyline</a>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="dwfIf1WMhgc
+" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMzMwMTM4MDU2N15BMl5BanBnXkFtZTgwMzQ0MjMxMDE@._V1_SX300.jpg" width="220" height="342">
+    <h2>Schindler's List</h2>
+    Rating: <span id="rating">8.9 </span>
+    <a href="#" data-toggle="tooltip" title="In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.">View storyline</a>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="26QeTqMw0IA
+" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTMxMzM1ODEwOF5BMl5BanBnXkFtZTcwMzgwNTgyMQ@@._V1._CR13,3,325,479_SY132_CR0,0,89,132_AL_.jpg_V1_SX300.jpg" width="220" height="342">
+    <h2>The West Wing</h2>
+    Rating: <span id="rating">8.8 </span>
+    <a href="#" data-toggle="tooltip" title="Inside the lives of staffers in the west wing of the White House.">View storyline</a>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="a7R4YFi_qhA
+" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTMyMTY4OTg2Nl5BMl5BanBnXkFtZTcwNDE4NjYyMQ@@._V1_SX300.jpg" width="220" height="342">
+    <h2>The Decline of the American Empire</h2>
+    Rating: <span id="rating">7.4 </span>
+    <a href="#" data-toggle="tooltip" title="Sexual revelations emerge when a group of academics and their partners spend a weekend at a country retreat.">View storyline</a>
+
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5DO-nDW43Ik
+" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX300.jpg" width="220" height="342">
+    <h2>The Godfather</h2>
+    Rating: <span id="rating">9.2 </span>
+    <a href="#" data-toggle="tooltip" title="The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.">View storyline</a>
+
+</div>
+
+       </div>
+       
+  </body>
+</html>
