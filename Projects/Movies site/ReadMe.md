@@ -24,4 +24,4 @@ Installation instructions
 
 Live version
 ============
-[Here](http://laurentmor.github.io/udacty-FS/Projects/Movies%20site)
+[Here](http://laurentmor.github.io/)
