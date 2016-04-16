@@ -1,6 +1,6 @@
 Project Overview
 ==================
-my own Fresh tomatoes favorites movies site
+My own Fresh tomatoes favorites movies site
 
 Technologies
 ============
@@ -12,7 +12,7 @@ Technologies
 
 Installation instructions
 =========================
-* Clone  this repository : git clone https://github.com/laurentmor/udacty-FS.git
+* Clone  this repository : git clone https://github.com/laurentmor/udacity-FS.git
 * cd to Projects/Movies site
 * Create or change movies.dat content:
   * ```python
@@ -24,4 +24,4 @@ Installation instructions
 
 Live version
 ============
-[Here](http://laurentmor.github.io/udacty-FS/Projects/Movies%20site)
+[Here](http://laurentmor.github.io/udacity-FS/)
